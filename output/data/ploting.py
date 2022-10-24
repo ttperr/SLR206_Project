@@ -19,6 +19,7 @@ plt.title('Performance of the Coarse Grained Algortihm with u = 10%')
 plt.semilogy()
 plt.grid(True, which="both")
 plt.legend(['list size = 100', 'list size = 1000', 'list size = 10000'])
+plt.savefig("CoarseGrained_u=10.png", dpi = 600)
 
 
 
@@ -34,6 +35,7 @@ plt.title('Performance of the Hand Over Hand Algortihm with u = 10%')
 plt.semilogy()
 plt.grid(True, which="both")
 plt.legend(['list size = 100', 'list size = 1000', 'list size = 10000'])
+plt.savefig("HandOverHand_u=10.png", dpi = 600)
 
 
 # Plot 3: Lazy
@@ -48,6 +50,7 @@ plt.title('Performance of the Lazy Algortihm with u = 10%')
 plt.semilogy()
 plt.grid(True, which="both")
 plt.legend(['list size = 100', 'list size = 1000', 'list size = 10000'])
+plt.savefig("Lazy_u=10.png", dpi = 600)
 
 # Three plots (one per algorithm), with three curves each, for a fixed list size 100 and varying update ratios.
 
@@ -62,6 +65,7 @@ plt.ylabel('Throughput (ops/s)')
 plt.title('Performance of the Coarse Grained Algortihm with list size = 100')
 plt.grid(True, which="both")
 plt.legend(['u = 0%', 'u = 10%', 'u = 100%'])
+plt.savefig("CoarseGrained_lsize=100.png", dpi = 600)
 
 # Plot 2: Hand Over Hand
 
@@ -74,6 +78,7 @@ plt.ylabel('Throughput (ops/s)')
 plt.title('Performance of the Hand Over Hand Algortihm with list size = 100')
 plt.grid(True, which="both")
 plt.legend(['u = 0%', 'u = 10%', 'u = 100%'])
+plt.savefig("HandOverHand_lsize=100.png", dpi = 600)
 
 # Plot 3: Lazy
 
@@ -86,17 +91,18 @@ plt.ylabel('Throughput (ops/s)')
 plt.title('Performance of the Lazy Algortihm with list size = 100')
 plt.grid(True, which="both")
 plt.legend(['u = 0%', 'u = 10%', 'u = 100%'])
+plt.savefig("Lazy_lsize=100.png", dpi = 600)
 
 # One plot, with three curves (one per algorithm), with fixed update ratio 10% and list size 1000.
 
 plt.figure()
-plt.semilogy()
 plt.plot(coarse.loc[(coarse['uratio'] == 10) & (coarse['lsize'] == 1000)]['threads'], coarse.loc[(coarse['uratio'] == 10) & (coarse['lsize'] == 1000)]['throughput'], 'r')
 plt.plot(hOh.loc[(hOh['uratio'] == 10) & (hOh['lsize'] == 1000)]['threads'], hOh.loc[(hOh['uratio'] == 10) & (hOh['lsize'] == 1000)]['throughput'], 'g')
 plt.plot(lazy.loc[(lazy['uratio'] == 10) & (lazy['lsize'] == 1000)]['threads'], lazy.loc[(lazy['uratio'] == 10) & (lazy['lsize'] == 1000)]['throughput'], 'b')
 plt.xlabel('Threads')
 plt.ylabel('Throughput (ops/s)')
-plt.title('Comparing performance of all three algorithms with update ratio u = 10% and list size = 1000')
+plt.title('Comparing performance of all three algorithms \n with update ratio u = 10% and list size = 1000')
 plt.grid(True, which="both")
+plt.semilogy()
 plt.legend(['Coarse grained', 'Hand Over Hand', 'Lazy'])
-plt.show()
+plt.savefig('AllAlgorithms_u=10_lsize=1000.png', dpi = 600)
